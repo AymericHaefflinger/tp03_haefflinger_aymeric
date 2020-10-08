@@ -5,12 +5,16 @@ import { Article } from './article';
 
 
 @Component({
-  selector: 'hello',
-  template: `  `,
+  selector: 'produit',
+  template: ` <div class="carreJeu" *ngFor="let art of Articles">
+                <img src="{{art.img}}">
+                <h1>{{art.nom}}</h1>
+                <p>{{art.prix}}</p>
+              </div> `,
   styles: [`h1 { font-family: Lato; }`]
 })
 
-export class HelloComponent  {
+export class ProduitComponent  {
   @Input() name: string;
 
   Articles : Article[];

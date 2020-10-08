@@ -1,4 +1,6 @@
 export interface Article {
-  nom: string
+  nom: string, 
+  prix: string,
+  img: string
 }
 

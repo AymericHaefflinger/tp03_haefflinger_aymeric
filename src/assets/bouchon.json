@@ -1,0 +1,17 @@
+[
+  {
+      "nom":"Dixit",
+      "prix":"25€",
+      "img" : "https://www.espritjeu.com/upload/image/dixit-p-image-53777-grande.jpg"
+  },
+  {
+      "nom":"Wazabi",
+      "prix":"15€",
+      "img" : "https://www.agorajeux.com/16199-thickbox_default/wazabi.jpg"
+  },
+  {
+      "nom":"Draftosaurus",
+      "prix":"15€",
+      "img" : "https://www.jeuxdenim.be/images/jeux/Draftosaurus_large01.jpg"
+  }
+]
