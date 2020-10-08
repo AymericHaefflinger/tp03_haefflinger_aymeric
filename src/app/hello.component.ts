@@ -17,6 +17,7 @@ export class HelloComponent  {
 
   constructor(public HttpServiceService: HttpServiceService) {}
 
+
   getData(): void {
     this.HttpServiceService.getData()
       .subscribe(Articles => (this.Articles = Articles));
@@ -25,7 +26,6 @@ export class HelloComponent  {
   ngOnInit() {
     this.getData();
   }
-
 
 }
 

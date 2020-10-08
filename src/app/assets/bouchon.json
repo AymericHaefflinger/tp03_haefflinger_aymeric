@@ -1,13 +1,11 @@
-{
-   "data":[
-      {
-         "nom":"produit1"
-      },
-      {
-         "nom":"produit2"
-      },
-      {
-         "nom":"produit3"
-      }
-   ]
-}
+[
+  {
+      "nom":"produit1"
+  },
+  {
+      "nom":"produit2"
+  },
+  {
+      "nom":"produit3"
+  }
+]
