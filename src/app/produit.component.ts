@@ -6,12 +6,25 @@ import { Article } from './article';
 
 @Component({
   selector: 'produit',
-  template: ` <div class="carreJeu" *ngFor="let art of Articles">
+  template: ` 
+              <input class="input" type="text" id="nom" name="nom" placeholder="Nom du jeu">
+              <label for="nom">Nom du jeu</label>
+
+              <input class="input" type="text" id="prix" name="prix" placeholder="Prix maximum du jeu">
+              <label for="prix">Prix maximum du jeu </label>
+
+              <div class="carreJeu" *ngFor="let art of Articles">
                 <img src="{{art.img}}">
-                <h1>{{art.nom}}</h1>
+                <h4>{{art.nom}}</h4>
                 <p>{{art.prix}}</p>
               </div> `,
-  styles: [`h1 { font-family: Lato; }`]
+
+  styles: [`body { font-family: Lato;}
+            produit {display: flex;}
+            .input {margin-left: 25px !important; margin-right: 25px !important;}
+            label {margin-left: 25px; width: 100%;}
+            .carreJeu {flex-grow: 1; width: 30%; margin: auto; text-align: center; padding: 10px; border: 1px solid black; margin: 10px; margin-top: 25px}
+            img {width: inherit}`]
 })
 
 export class ProduitComponent  {
