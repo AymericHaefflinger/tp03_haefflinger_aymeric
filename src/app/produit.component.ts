@@ -7,11 +7,15 @@ import { Article } from './article';
 @Component({
   selector: 'produit',
   template: ` 
-              <input class="input" type="text" id="nom" name="nom" placeholder="Nom du jeu">
+              <input #nomArticle class="input" type="text" id="nom" name="nom" placeholder="Nom du jeu">
               <label for="nom">Nom du jeu</label>
 
               <input class="input" type="text" id="prix" name="prix" placeholder="Prix maximum du jeu">
               <label for="prix">Prix maximum du jeu </label>
+
+              <button (click)="searchArticle(nomArticle.value)">
+                Rechercher
+              </button>
 
               <div class="carreJeu" *ngFor="let art of Articles">
                 <img src="{{art.img}}">
@@ -38,6 +42,15 @@ export class ProduitComponent  {
   getData(): void {
     this.HttpServiceService.getData()
       .subscribe(Articles => (this.Articles = Articles));
+  }
+
+  searchArticle(searchTerm: string) {
+    console.warn(searchTerm);
+    if (searchTerm) {
+      this.HttpServiceService.searchArticle(searchTerm)
+        .subscribe(Articles => (this.Articles = Articles));
+    }
+    console.warn(this.Articles);
   }
   
   ngOnInit() {
