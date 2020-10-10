@@ -35,6 +35,7 @@ export class ProduitComponent  {
   @Input() name: string;
 
   Articles : Article[];
+  allArticles : Article[];
 
   constructor(public HttpServiceService: HttpServiceService) {}
 
@@ -42,18 +43,31 @@ export class ProduitComponent  {
   getData(): void {
     this.HttpServiceService.getData()
       .subscribe(Articles => (this.Articles = Articles));
+
   }
 
+  getDataInit(): void {
+    this.HttpServiceService.getData()
+      .subscribe(Articles => (this.allArticles = Articles));
+    this.HttpServiceService.getData()
+      .subscribe(Articles => (this.Articles = Articles));
+  }
+
+
   searchArticle(searchTerm: string) {
-    console.warn( "Début" + this.Articles)
-    this.getData();
     if (searchTerm) {
-      let allArticles = from(this.Articles);
+      let allArticles = from(this.allArticles);
       this.Articles = [];
       let searchResult = allArticles.pipe(filter(a => a.nom.includes(searchTerm)))
-        .subscribe(Articles => (this.Articles.push(Articles) ) );
+        .subscribe(Articles => ( this.Articles.push(Articles) ) );
     }
-          console.warn("Fin" + this.Articles);
+    else{
+      this.getData();
+    }
+  }
+
+  ngOnInit(){
+    this.getDataInit();
   }
   
 }
